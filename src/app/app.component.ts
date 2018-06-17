@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+   title:string= 'Tasks';
+   tasks:Array<string> = [];
+   task:string='';
+   doneTasks:Array<string>=[];
+   addTask(){
+      this.tasks.push(this.task);
+      this.task = '';
+   }
+
+   remove(index:number){
+     let removed = this.tasks.splice(index,1);
+     this.doneTasks.push(removed[0]);
+   }
 }
